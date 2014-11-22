@@ -1,7 +1,9 @@
 'use strict';
 
 var americanExpress = '(?:3[47][0-9]{13})';
+var dinersClub = '(?:3(?:0[0-5]|[68][0-9])[0-9]{11})';
 var discover = '(?:6(?:011|5[0-9]{2})(?:[0-9]{12}))';
+var jcb = '(?:2131|1800|35\\d{3})\\d{11}';
 var mastercard = '(?:5[1-5][0-9]{14})';
 var visa = '(?:4[0-9]{12})(?:[0-9]{3})?';
 
@@ -14,7 +16,9 @@ var visa = '(?:4[0-9]{12})(?:[0-9]{3})?';
 module.exports = function () {
 	return new RegExp('(?:^|\\s)?(["\'])?' + [
 		americanExpress,
+		dinersClub,
 		discover,
+		jcb,
 		mastercard,
 		visa
 	].join('|') + '\\1', 'g');
@@ -31,6 +35,16 @@ module.exports.americanExpress = function () {
 };
 
 /**
+ * Diners Club
+ *
+ * @api public
+ */
+
+module.exports.dinersClub = function () {
+	return new RegExp('(?:^|\\s)?(["\'])?' + dinersClub + '\\1', 'g');
+};
+
+/**
  * Discover
  *
  * @api public
@@ -38,6 +52,16 @@ module.exports.americanExpress = function () {
 
 module.exports.discover = function () {
 	return new RegExp('(?:^|\\s)?(["\'])?' + discover + '\\1', 'g');
+};
+
+/**
+ * JCB
+ *
+ * @api public
+ */
+
+module.exports.jcb = function () {
+	return new RegExp('(?:^|\\s)?(["\'])?' + jcb + '\\1', 'g');
 };
 
 /**
