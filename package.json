@@ -1,0 +1,31 @@
+{
+  "name": "credit-card-regex",
+  "version": "2.0.3",
+  "description": "Regular expression for matching credit card numbers",
+  "license": "MIT",
+  "repository": "kevva/credit-card-regex",
+  "author": {
+    "name": "Kevin Mårtensson",
+    "email": "kevinmartensson@gmail.com",
+    "url": "https://github.com/kevva"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "index.js",
+    "tlds.json"
+  ],
+  "keywords": [
+    "creditcard",
+    "number",
+    "regex",
+    "string"
+  ],
+  "devDependencies": {
+    "ava": "^0.0.4"
+  }
+}
