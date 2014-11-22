@@ -11,15 +11,15 @@ $ npm install --save credit-card-regex
 ## Usage
 
 ```js
-var urlRegex = require('credit-card-regex');
+var creditCardRegex = require('credit-card-regex');
 
-urlRegex().test('6011881485017922');
+creditCardRegex().test('6011881485017922');
 //=> true
 
-urlRegex().exec('Credit card number: 6011881485017922')[0].trim();
+creditCardRegex().exec('Credit card number: 6011881485017922')[0].trim();
 //=> 6011881485017922
 
-'Multiple 5441068611005540 6011881485017922 numbers'.match(urlRegex());
+'Multiple 5441068611005540 6011881485017922 numbers'.match(creditCardRegex());
 //=> ['5441068611005540', '6011881485017922']
 ```
 
