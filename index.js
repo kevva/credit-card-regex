@@ -8,16 +8,21 @@ var maestro = '(?:(?:5[0678]\\d\\d|6304|6390|67\\d\\d)\\d{8,15})';
 var mastercard = '(?:5[1-5][0-9]{14})';
 var visa = '(?:4[0-9]{12})(?:[0-9]{3})?';
 
+/**
+ * Generate regular expression
+ *
+ * @param {String} pattern
+ * @api private
+ */
+
 function generate(pattern) {
 	return function () {
 		return new RegExp('(?:^|\\s)?(["\'])?' + pattern + '\\1', 'g');
-	}
-};
+	};
+}
 
 /**
- * Regular expression for matching credit card numbers
- *
- * @api public
+ * Module exports
  */
 
 module.exports = generate([
@@ -30,58 +35,10 @@ module.exports = generate([
 	visa
 ].join('|'));
 
-/**
- * American Express
- *
- * @api public
- */
-
 module.exports.americanExpress = generate(americanExpress);
-
-/**
- * Diners Club
- *
- * @api public
- */
-
 module.exports.dinersClub = generate(dinersClub);
-
-/**
- * Discover
- *
- * @api public
- */
-
 module.exports.discover = generate(discover);
-
-/**
- * JCB
- *
- * @api public
- */
-
 module.exports.jcb = generate(jcb);
-
-/**
- * Maestro
- *
- * @api public
- */
-
 module.exports.maestro = generate(maestro);
-
-/**
- * Mastercard
- *
- * @api public
- */
-
 module.exports.mastercard = generate(mastercard);
-
-/**
- * VISA
- *
- * @api public
- */
-
 module.exports.visa = generate(visa);
