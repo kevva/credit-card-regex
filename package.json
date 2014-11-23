@@ -16,8 +16,7 @@
     "test": "node test.js"
   },
   "files": [
-    "index.js",
-    "tlds.json"
+    "index.js"
   ],
   "keywords": [
     "creditcard",
