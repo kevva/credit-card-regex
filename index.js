@@ -8,23 +8,27 @@ var maestro = '(?:(?:5[0678]\\d\\d|6304|6390|67\\d\\d)\\d{8,15})';
 var mastercard = '(?:5[1-5][0-9]{14})';
 var visa = '(?:4[0-9]{12})(?:[0-9]{3})?';
 
+function generate(pattern) {
+	return function () {
+		return new RegExp('(?:^|\\s)?(["\'])?' + pattern + '\\1', 'g');
+	}
+};
+
 /**
  * Regular expression for matching credit card numbers
  *
  * @api public
  */
 
-module.exports = function () {
-	return new RegExp('(?:^|\\s)?(["\'])?' + [
-		americanExpress,
-		dinersClub,
-		discover,
-		jcb,
-		maestro,
-		mastercard,
-		visa
-	].join('|') + '\\1', 'g');
-};
+module.exports = generate([
+	americanExpress,
+	dinersClub,
+	discover,
+	jcb,
+	maestro,
+	mastercard,
+	visa
+].join('|'));
 
 /**
  * American Express
@@ -32,9 +36,7 @@ module.exports = function () {
  * @api public
  */
 
-module.exports.americanExpress = function () {
-	return new RegExp('(?:^|\\s)?(["\'])?' + americanExpress + '\\1', 'g');
-};
+module.exports.americanExpress = generate(americanExpress);
 
 /**
  * Diners Club
@@ -42,9 +44,7 @@ module.exports.americanExpress = function () {
  * @api public
  */
 
-module.exports.dinersClub = function () {
-	return new RegExp('(?:^|\\s)?(["\'])?' + dinersClub + '\\1', 'g');
-};
+module.exports.dinersClub = generate(dinersClub);
 
 /**
  * Discover
@@ -52,9 +52,7 @@ module.exports.dinersClub = function () {
  * @api public
  */
 
-module.exports.discover = function () {
-	return new RegExp('(?:^|\\s)?(["\'])?' + discover + '\\1', 'g');
-};
+module.exports.discover = generate(discover);
 
 /**
  * JCB
@@ -62,9 +60,7 @@ module.exports.discover = function () {
  * @api public
  */
 
-module.exports.jcb = function () {
-	return new RegExp('(?:^|\\s)?(["\'])?' + jcb + '\\1', 'g');
-};
+module.exports.jcb = generate(jcb);
 
 /**
  * Maestro
@@ -72,9 +68,7 @@ module.exports.jcb = function () {
  * @api public
  */
 
-module.exports.maestro = function () {
-	return new RegExp('(?:^|\\s)?(["\'])?' + maestro + '\\1', 'g');
-};
+module.exports.maestro = generate(maestro);
 
 /**
  * Mastercard
@@ -82,9 +76,7 @@ module.exports.maestro = function () {
  * @api public
  */
 
-module.exports.mastercard = function () {
-	return new RegExp('(?:^|\\s)?(["\'])?' + mastercard + '\\1', 'g');
-};
+module.exports.mastercard = generate(mastercard);
 
 /**
  * VISA
@@ -92,6 +84,4 @@ module.exports.mastercard = function () {
  * @api public
  */
 
-module.exports.visa = function () {
-	return new RegExp('(?:^|\\s)?(["\'])?' + visa + '\\1', 'g');
-};
+module.exports.visa = generate(visa);
