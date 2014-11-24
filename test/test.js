@@ -12,7 +12,9 @@ test('match credit card numbers', function (t) {
 		require('./fixtures/visa.json')
 	).map(function (fixture) {
 		return String(fixture.CreditCard.CardNumber);
-	});
+	}).concat(require('./fixtures/jcb.json').map(function (fixture) {
+		return String(fixture);
+	}));
 
 	fixtures.forEach(function (el) {
 		if (!creditCardRegex().exec(el)) {
