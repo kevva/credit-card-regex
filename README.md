@@ -13,14 +13,17 @@ $ npm install --save credit-card-regex
 ```js
 var creditCardRegex = require('credit-card-regex');
 
-creditCardRegex().test('6011881485017922');
+creditCardRegex().test('6011881485017922 foo bar');
 //=> true
 
-creditCardRegex().exec('Credit card number: 6011881485017922')[0].trim();
-//=> 6011881485017922
+creditCardRegex({exact: true}).test('6011881485017922 foo bar');
+//=> false
 
-'Multiple 5441068611005540 6011881485017922 numbers'.match(creditCardRegex());
-//=> ['5441068611005540', '6011881485017922']
+creditCardRegex({exact: true}).test('6011881485017922');
+//=> true
+
+'foo 6011881485017922 bar 5441068611005540'.match(creditCardRegex());
+//=> ['6011881485017922', '5441068611005540']
 ```
 
 ## License
