@@ -16,8 +16,10 @@ var visa = '(?:4[0-9]{12})(?:[0-9]{3})?';
  */
 
 function generate(pattern) {
-	return function () {
-		return new RegExp('(?:^|\\s)?(["\'])?' + pattern + '\\1', 'g');
+	return function (opts) {
+		opts = opts || {};
+		return opts.exact ? new RegExp('(?:^' + pattern + '$)') :
+							new RegExp('(?:^|\\s)?(["\'])?' + pattern + '\\1', 'g');
 	};
 }
 
