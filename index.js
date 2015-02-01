@@ -8,13 +8,6 @@ var maestro = '(?:(?:5[0678]\\d\\d|6304|6390|67\\d\\d)\\d{8,15})';
 var mastercard = '(?:5[1-5][0-9]{14})';
 var visa = '(?:4[0-9]{12})(?:[0-9]{3})?';
 
-/**
- * Generate regular expression
- *
- * @param {String} pattern
- * @api private
- */
-
 function generate(pattern) {
 	return function (opts) {
 		opts = opts || {};
@@ -22,10 +15,6 @@ function generate(pattern) {
 							new RegExp('(?:^|\\s)?(["\'])?' + pattern + '\\1', 'g');
 	};
 }
-
-/**
- * Module exports
- */
 
 module.exports = generate([
 	americanExpress,
