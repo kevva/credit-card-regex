@@ -2,11 +2,13 @@
 
 > Regular expression for matching credit card numbers
 
+
 ## Install
 
-```sh
+```
 $ npm install --save credit-card-regex
 ```
+
 
 ## Usage
 
@@ -25,6 +27,22 @@ creditCardRegex({exact: true}).test('6011881485017922');
 'foo 6011881485017922 bar 5441068611005540'.match(creditCardRegex());
 //=> ['6011881485017922', '5441068611005540']
 ```
+
+
+## API
+
+### creditCardRegex(options)
+
+Returns a regex for matching credit card numbers.
+
+#### options.exact
+
+Type: `boolean`  
+Default: `false` *(Matches any credit card number in a string)*
+
+Only match an exact string.  
+Useful with `RegExp#test` to check if a string is a credit card number.
+
 
 ## License
 

@@ -1,7 +1,7 @@
 'use strict';
 
-var creditCardRegex = require('../');
 var test = require('ava');
+var creditCardRegex = require('../');
 
 test('match credit card numbers', function (t) {
 	var fixtures = [].concat(
