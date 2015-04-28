@@ -19,10 +19,17 @@
     "index.js"
   ],
   "keywords": [
+    "americanexpress",
     "creditcard",
+    "dinersclub",
+    "discover",
+    "jcb",
+    "maestro",
+    "mastercard",
     "number",
     "regex",
-    "string"
+    "string",
+    "visa"
   ],
   "devDependencies": {
     "ava": "^0.0.4"
