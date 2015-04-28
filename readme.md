@@ -33,7 +33,15 @@ creditCardRegex({exact: true}).test('6011881485017922');
 
 ### creditCardRegex(options)
 
-Returns a regex for matching credit card numbers.
+Returns a regex for matching credit card numbers. It supports credit card numbers from the following vendors:
+
+* American Express
+* Diners Club
+* Discover
+* JCB
+* Maestro
+* MasterCard
+* VISA
 
 #### options.exact
 
