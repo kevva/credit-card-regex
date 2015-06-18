@@ -1,5 +1,4 @@
 'use strict';
-
 var americanExpress = '(?:3[47][0-9]{13})';
 var dinersClub = '(?:3(?:0[0-5]|[68][0-9])[0-9]{11})';
 var discover = '(?:6(?:011|5[0-9]{2})(?:[0-9]{12}))';
@@ -12,7 +11,7 @@ function generate(pattern) {
 	return function (opts) {
 		opts = opts || {};
 		return opts.exact ? new RegExp('(?:^' + pattern + '$)') :
-							new RegExp('(?:^|\\s)?(["\'])?' + pattern + '\\1', 'g');
+							new RegExp('(["\'])?' + pattern + '\\1', 'g');
 	};
 }
 

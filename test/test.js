@@ -1,5 +1,4 @@
 'use strict';
-
 var test = require('ava');
 var creditCardRegex = require('../');
 
@@ -15,12 +14,7 @@ test('match credit card numbers', function (t) {
 	);
 
 	fixtures.forEach(function (el) {
-		if (!creditCardRegex().exec(el)) {
-			t.assert(false, el);
-			return;
-		}
-
-		t.assert(creditCardRegex().exec(el)[0] === el, el);
+		t.assert(creditCardRegex({exact: true}).test(el), el);
 	});
 
 	t.end();
