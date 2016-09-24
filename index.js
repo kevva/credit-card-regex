@@ -1,19 +1,16 @@
 'use strict';
-var americanExpress = '(?:3[47][0-9]{13})';
-var dinersClub = '(?:3(?:0[0-5]|[68][0-9])[0-9]{11})';
-var discover = '(?:6(?:011|5[0-9]{2})(?:[0-9]{12}))';
-var jcb = '(?:(?:2131|1800|35\\d{3})\\d{11})';
-var maestro = '(?:(?:5[0678]\\d\\d|6304|6390|67\\d\\d)\\d{8,15})';
-var mastercard = '(?:5[1-5][0-9]{14})';
-var visa = '(?:4[0-9]{12})(?:[0-9]{3})?';
+const americanExpress = '(?:3[47][0-9]{13})';
+const dinersClub = '(?:3(?:0[0-5]|[68][0-9])[0-9]{11})';
+const discover = '(?:6(?:011|5[0-9]{2})(?:[0-9]{12}))';
+const jcb = '(?:(?:2131|1800|35\\d{3})\\d{11})';
+const maestro = '(?:(?:5[0678]\\d\\d|6304|6390|67\\d\\d)\\d{8,15})';
+const mastercard = '(?:5[1-5][0-9]{14})';
+const visa = '(?:4[0-9]{12})(?:[0-9]{3})?';
 
-function generate(pattern) {
-	return function (opts) {
-		opts = opts || {};
-		return opts.exact ? new RegExp('(?:^' + pattern + '$)') :
-							new RegExp('(["\'])?' + pattern + '\\1', 'g');
-	};
-}
+const generate = pattern => opts => {
+	opts = opts || {};
+	return opts.exact ? new RegExp(`(?:^${pattern}$)`) : new RegExp(`(["\'])${pattern}\\1`, 'g');
+};
 
 module.exports = generate([
 	americanExpress,

@@ -1,4 +1,4 @@
-# credit-card-regex [![Build Status](http://img.shields.io/travis/kevva/credit-card-regex.svg?style=flat)](https://travis-ci.org/kevva/credit-card-regex)
+# credit-card-regex [![Build Status](https://travis-ci.org/kevva/credit-card-regex.svg?branch=master)](https://travis-ci.org/kevva/credit-card-regex)
 
 > Regular expression for matching credit card numbers
 
@@ -13,7 +13,7 @@ $ npm install --save credit-card-regex
 ## Usage
 
 ```js
-var creditCardRegex = require('credit-card-regex');
+const creditCardRegex = require('credit-card-regex');
 
 creditCardRegex().test('6011881485017922 foo bar');
 //=> true
@@ -43,13 +43,14 @@ Returns a regex for matching credit card numbers. It supports credit card number
 * MasterCard
 * VISA
 
-#### options.exact
+#### options
 
-Type: `boolean`  
+##### exact
+
+Type: `Boolean`<br>
 Default: `false` *(Matches any credit card number in a string)*
 
-Only match an exact string.  
-Useful with `RegExp#test` to check if a string is a credit card number.
+Only match an exact string. Useful with `RegExp#test` to check if a string is a credit card number.
 
 
 ## License

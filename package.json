@@ -10,10 +10,10 @@
     "url": "https://github.com/kevva"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   },
   "scripts": {
-    "test": "node test/test.js"
+    "test": "xo && ava"
   },
   "files": [
     "index.js"
@@ -32,6 +32,10 @@
     "visa"
   ],
   "devDependencies": {
-    "ava": "^0.0.4"
+    "ava": "*",
+    "xo": "*"
+  },
+  "xo": {
+    "esnext": true
   }
 }
