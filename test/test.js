@@ -1,8 +1,9 @@
-import test from 'ava';
-import m from './';
+'use strict';
+var test = require('ava');
+var creditCardRegex = require('../');
 
-test('match credit card numbers', t => {
-	const fixtures = [].concat(
+test('match credit card numbers', function (t) {
+	var fixtures = [].concat(
 		require('./fixtures/americanexpress.json'),
 		require('./fixtures/dinersclub.json'),
 		require('./fixtures/discover.json'),
@@ -12,7 +13,9 @@ test('match credit card numbers', t => {
 		require('./fixtures/visa.json')
 	);
 
-	for (const x of fixtures) {
-		t.true(m({exact: true}).test(x));
-	}
+	fixtures.forEach(function (el) {
+		t.assert(creditCardRegex({exact: true}).test(el), el);
+	});
+
+	t.end();
 });
