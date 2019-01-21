@@ -9,7 +9,7 @@ const visa = '(?:4[0-9]{12})(?:[0-9]{3})?';
 
 const generate = pattern => opts => {
 	opts = opts || {};
-	return opts.exact ? new RegExp(`(?:^${pattern}$)`) : new RegExp(`(["'])${pattern}\\1`, 'g');
+	return opts.exact ? new RegExp(`(?:^${pattern}$)`) : new RegExp(pattern, 'g');
 };
 
 module.exports = generate([
