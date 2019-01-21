@@ -1,5 +1,5 @@
 import test from 'ava';
-import m from './';
+import creditCardRegex from '.';
 
 test('match credit card numbers', t => {
 	const fixtures = [].concat(
@@ -13,6 +13,6 @@ test('match credit card numbers', t => {
 	);
 
 	for (const x of fixtures) {
-		t.true(m({exact: true}).test(x));
+		t.true(creditCardRegex({exact: true}).test(x));
 	}
 });

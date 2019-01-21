@@ -6,7 +6,7 @@
 ## Install
 
 ```
-$ npm install --save credit-card-regex
+$ npm install credit-card-regex
 ```
 
 
